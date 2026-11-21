@@ -313,7 +313,7 @@ caption { text-align: left; padding: 0 .45rem .5rem; color: var(--accent); font-
 @media (max-width: 760px) {
   .header-inner { grid-template-columns: 1fr 1fr; gap: .55rem; padding: .7rem 0 .6rem; }
   .site-nav { grid-row: 2; grid-column: 1 / -1; width: 100%; }
-  .site-nav a { flex: 1; padding-inline: .3rem; }
+  .site-nav a { flex: 1; min-width: 0; padding-inline: .3rem; white-space: normal; }
   .header-actions { grid-column: 2; grid-row: 1; }
   .page-intro { padding-top: 1.6rem; padding-bottom: 1.35rem; }
   .workspace { grid-template-columns: minmax(0, 1fr); }
@@ -338,7 +338,7 @@ caption { text-align: left; padding: 0 .45rem .5rem; color: var(--accent); font-
   .panel, .board-panel { padding: .85rem; }
   .mode-bar, .mode-tabs { width: 100%; }
   .mode-tabs { gap: .14rem; }
-  .mode-tabs button { flex: 1; padding-inline: .27rem; font-size: .76rem; gap: .25rem; min-height: 42px; }
+  .mode-tabs button { flex: 1; min-width: 0; padding-inline: .27rem; font-size: .76rem; gap: .25rem; min-height: 42px; white-space: normal; }
   .mode-tabs svg { width: 14px; }
   .domain-row { grid-template-columns: 1.82rem repeat(8, minmax(0, 1fr)); gap: .19rem; }
   .domain-value { min-height: 28px; }
@@ -348,6 +348,9 @@ caption { text-align: left; padding: 0 .45rem .5rem; color: var(--accent); font-
   .learning-demo { grid-column: auto; }
   .lesson-list { max-height: 17rem; overflow: auto; }
   .site-footer > div { flex-wrap: wrap; }
+}
+@media (max-width: 360px) {
+  .site-nav svg, .mode-tabs svg { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; scroll-behavior: auto !important; }

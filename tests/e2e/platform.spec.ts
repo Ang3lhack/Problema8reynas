@@ -75,8 +75,11 @@ test('permite detener una búsqueda animada', async ({ page }) => {
 })
 
 test('sitio móvil sin desbordamiento, navegación, tema y reducción de movimiento', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 })
+  await page.setViewportSize({ width: 320, height: 740 })
   await page.goto('./')
+  await expect(page.getByRole('button', { name: 'Iniciar', exact: true })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320)
+  await page.setViewportSize({ width: 390, height: 844 })
   await expect(page.getByRole('button', { name: 'Iniciar', exact: true })).toBeVisible()
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390)
   await page.getByRole('link', { name: 'Aprender', exact: true }).click()
